@@ -16,7 +16,7 @@ spec:
         app: result
     spec:
       containers:
-      - image: training/voting-app:v1
+      - image: training/voting-result:v1
         name: result
         ports:
         - containerPort: 80
