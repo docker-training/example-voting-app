@@ -19,10 +19,11 @@ spec:
       - image: postgres:9.4
         name: postgres
         env:
-        - name: POSTGRES_USER
-          value: postgres
-        - name: POSTGRES_PASSWORD
-          value: postgres
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-secret
+                key: password
         ports:
         - containerPort: 5432
           name: postgres
@@ -31,4 +32,5 @@ spec:
           name: db-data
       volumes:
       - name: db-data
-        emptyDir: {} 
+        persistentVolumeClaim:
+          claimName: db-pv-claim
