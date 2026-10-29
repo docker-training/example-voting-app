@@ -16,5 +16,5 @@ spec:
         app: worker
     spec:
       containers:
-      - image: training/voting-worker:v1
+      - image: mirantistraining/voting-worker:v2
         name: worker
